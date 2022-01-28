@@ -13,6 +13,7 @@ class GameOfLifeCubit extends Cubit<GameOfLifeState> {
   late double canvasHeight;
   late double canvasWidth;
   late int resolution;
+  int generation = 0;
 
   void initializeGrid({
     double? height,
@@ -69,6 +70,7 @@ class GameOfLifeCubit extends Cubit<GameOfLifeState> {
 
     emit(
       state.copyWith(
+        generation: generation++,
         oldGeneration: next,
         newGeneration: next,
       ),

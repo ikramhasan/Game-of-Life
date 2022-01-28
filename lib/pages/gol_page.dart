@@ -17,10 +17,19 @@ class GOLPage extends StatelessWidget {
     Timer.periodic(const Duration(milliseconds: 300), (timer) {
       context.read<GameOfLifeCubit>().computeNextGeneration();
     });
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Center(
-          child: GOLGrid(),
+          child: Column(
+            children: [
+              BlocBuilder<GameOfLifeCubit, GameOfLifeState>(
+                builder: (context, state) {
+                  return Text(state.generation.toString());
+                },
+              ),
+              const GOLGrid(),
+            ],
+          ),
         ),
       ),
     );

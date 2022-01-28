@@ -16,6 +16,7 @@ class GOLGrid extends StatelessWidget {
             height: context.read<GameOfLifeCubit>().canvasHeight,
             width: context.read<GameOfLifeCubit>().canvasWidth,
             child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: state.gridSize,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: state.oldGeneration.length,
@@ -29,11 +30,9 @@ class GOLGrid extends StatelessWidget {
                     color: state.oldGeneration[y][x] == 0
                         ? Colors.black
                         : Colors.green,
-                    // border: Border.all(
-                    //   color: state.oldGeneration[y][x] == 0
-                    //       ? Colors.white
-                    //       : Colors.black,
-                    // ),
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
                   ),
 
                   // child: Center(

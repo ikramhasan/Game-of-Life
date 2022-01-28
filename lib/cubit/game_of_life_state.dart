@@ -8,6 +8,7 @@ class GameOfLifeState with _$GameOfLifeState {
     required int gridSize,
     required int row,
     required int col,
+    required int generation,
   }) = _GameOfLifeState;
 
   factory GameOfLifeState.initial() => const GameOfLifeState(
@@ -16,5 +17,6 @@ class GameOfLifeState with _$GameOfLifeState {
         gridSize: 0,
         row: 0,
         col: 0,
+        generation: 0,
       );
 }

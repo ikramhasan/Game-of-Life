@@ -23,13 +23,15 @@ class _$GameOfLifeStateTearOff {
       required List<List<int>> newGeneration,
       required int gridSize,
       required int row,
-      required int col}) {
+      required int col,
+      required int generation}) {
     return _GameOfLifeState(
       oldGeneration: oldGeneration,
       newGeneration: newGeneration,
       gridSize: gridSize,
       row: row,
       col: col,
+      generation: generation,
     );
   }
 }
@@ -44,6 +46,7 @@ mixin _$GameOfLifeState {
   int get gridSize => throw _privateConstructorUsedError;
   int get row => throw _privateConstructorUsedError;
   int get col => throw _privateConstructorUsedError;
+  int get generation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GameOfLifeStateCopyWith<GameOfLifeState> get copyWith =>
@@ -60,7 +63,8 @@ abstract class $GameOfLifeStateCopyWith<$Res> {
       List<List<int>> newGeneration,
       int gridSize,
       int row,
-      int col});
+      int col,
+      int generation});
 }
 
 /// @nodoc
@@ -79,6 +83,7 @@ class _$GameOfLifeStateCopyWithImpl<$Res>
     Object? gridSize = freezed,
     Object? row = freezed,
     Object? col = freezed,
+    Object? generation = freezed,
   }) {
     return _then(_value.copyWith(
       oldGeneration: oldGeneration == freezed
@@ -101,6 +106,10 @@ class _$GameOfLifeStateCopyWithImpl<$Res>
           ? _value.col
           : col // ignore: cast_nullable_to_non_nullable
               as int,
+      generation: generation == freezed
+          ? _value.generation
+          : generation // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -117,7 +126,8 @@ abstract class _$GameOfLifeStateCopyWith<$Res>
       List<List<int>> newGeneration,
       int gridSize,
       int row,
-      int col});
+      int col,
+      int generation});
 }
 
 /// @nodoc
@@ -138,6 +148,7 @@ class __$GameOfLifeStateCopyWithImpl<$Res>
     Object? gridSize = freezed,
     Object? row = freezed,
     Object? col = freezed,
+    Object? generation = freezed,
   }) {
     return _then(_GameOfLifeState(
       oldGeneration: oldGeneration == freezed
@@ -160,6 +171,10 @@ class __$GameOfLifeStateCopyWithImpl<$Res>
           ? _value.col
           : col // ignore: cast_nullable_to_non_nullable
               as int,
+      generation: generation == freezed
+          ? _value.generation
+          : generation // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -172,7 +187,8 @@ class _$_GameOfLifeState implements _GameOfLifeState {
       required this.newGeneration,
       required this.gridSize,
       required this.row,
-      required this.col});
+      required this.col,
+      required this.generation});
 
   @override
   final List<List<int>> oldGeneration;
@@ -184,10 +200,12 @@ class _$_GameOfLifeState implements _GameOfLifeState {
   final int row;
   @override
   final int col;
+  @override
+  final int generation;
 
   @override
   String toString() {
-    return 'GameOfLifeState(oldGeneration: $oldGeneration, newGeneration: $newGeneration, gridSize: $gridSize, row: $row, col: $col)';
+    return 'GameOfLifeState(oldGeneration: $oldGeneration, newGeneration: $newGeneration, gridSize: $gridSize, row: $row, col: $col, generation: $generation)';
   }
 
   @override
@@ -201,7 +219,9 @@ class _$_GameOfLifeState implements _GameOfLifeState {
                 .equals(other.newGeneration, newGeneration) &&
             const DeepCollectionEquality().equals(other.gridSize, gridSize) &&
             const DeepCollectionEquality().equals(other.row, row) &&
-            const DeepCollectionEquality().equals(other.col, col));
+            const DeepCollectionEquality().equals(other.col, col) &&
+            const DeepCollectionEquality()
+                .equals(other.generation, generation));
   }
 
   @override
@@ -211,7 +231,8 @@ class _$_GameOfLifeState implements _GameOfLifeState {
       const DeepCollectionEquality().hash(newGeneration),
       const DeepCollectionEquality().hash(gridSize),
       const DeepCollectionEquality().hash(row),
-      const DeepCollectionEquality().hash(col));
+      const DeepCollectionEquality().hash(col),
+      const DeepCollectionEquality().hash(generation));
 
   @JsonKey(ignore: true)
   @override
@@ -225,7 +246,8 @@ abstract class _GameOfLifeState implements GameOfLifeState {
       required List<List<int>> newGeneration,
       required int gridSize,
       required int row,
-      required int col}) = _$_GameOfLifeState;
+      required int col,
+      required int generation}) = _$_GameOfLifeState;
 
   @override
   List<List<int>> get oldGeneration;
@@ -237,6 +259,8 @@ abstract class _GameOfLifeState implements GameOfLifeState {
   int get row;
   @override
   int get col;
+  @override
+  int get generation;
   @override
   @JsonKey(ignore: true)
   _$GameOfLifeStateCopyWith<_GameOfLifeState> get copyWith =>
